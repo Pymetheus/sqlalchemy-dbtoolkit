@@ -1,4 +1,4 @@
-# Sqlalchemy Database Toolkit
+# SQLAlchemy Database Toolkit
 
 **A modular toolkit for building, configuring, and managing databases using SQLAlchemy**
 
