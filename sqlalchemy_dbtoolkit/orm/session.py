@@ -31,11 +31,14 @@ class ORMSessionManager:
         return self.session_factory()
 
     @contextmanager
-    def session_scope(self):
+    def session_scope(self, commit=True):
         """
         Provides a transactional scope around a series of operations.
-
         Ensures proper commit, rollback, and closure of the session context.
+
+        Args:
+            commit (bool): Whether to commit the session at the end of the block.
+                           Useful to disable for read-only operations.
 
         Yields:
             sqlalchemy.orm.Session: A session object within the managed scope.
@@ -44,7 +47,8 @@ class ORMSessionManager:
         session = self.session
         try:
             yield session
-            session.commit()
+            if commit:
+                session.commit()
         except Exception as e:
             session.rollback()
             raise Exception(f"Session rolled back: {e} ")

@@ -74,6 +74,7 @@ port = 5432
 sqlite_path = /path/to/sqlite/databases  
 ```
 
+
 ### Usage
 
 Engine Factory Example:
@@ -108,6 +109,14 @@ inserter = InsertManager(engine)
 inserter.add_row(YourTable, {"column_1": "value", "column_2": 42})
 ```
 
+ORM Session Select Example:
+```python
+from sqlalchemy_dbtoolkit.query.read import SelectManager
+selector = SelectManager(engine)
+selection = selector.select_one_by_column(Table=YourTable, column_name="column_1", value="value")
+```
+
+
 ## Roadmap
 
 - [ ] Pandas Integration: Enable conversion between database queries and pandas DataFrames for analysis and data manipulation  
@@ -116,10 +125,12 @@ inserter.add_row(YourTable, {"column_1": "value", "column_2": 42})
 - [ ] Integrated Logging: Add structured logging across all components to improve debugging  
 - [ ] Integrate DBMSs: Include support for additional DBMS like mariadb, mssql and oracle
 
+
 ## Contributing
 
 Contributions to this project are welcome! If you would like to contribute, please open an issue to discuss potential changes or submit a pull request.
 For more details please visit the [contributing page](docs/CONTRIBUTING.md).
+
 
 ## License
 
