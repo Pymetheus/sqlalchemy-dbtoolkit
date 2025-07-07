@@ -116,6 +116,15 @@ selector = SelectManager(engine)
 selection = selector.select_one_by_column(Table=YourTable, column_name="column_1", value="value")
 ```
 
+Inspector Example:
+```python
+from sqlalchemy_dbtoolkit.core.inspector import InspectionManager
+Inspector = InspectionManager(engine)
+table_names = Inspector.get_table_names()
+for table in table_names:
+    table_columns = Inspector.get_columns(table)
+```
+
 
 ## Roadmap
 
