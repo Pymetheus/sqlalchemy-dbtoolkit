@@ -4,11 +4,11 @@ If you believe you have found a security vulnerability, please report it to us a
 
 ## Supported Versions
 
-Currently only the 0.1.6 version of the sqlalchemy-dbtoolkit is supported.
+Currently only the 0.1.7 version of the sqlalchemy-dbtoolkit is supported.
 
 | Version | Supported          |
 |---------| ------------------ |
-| 0.1.6   | :white_check_mark: |
+| 0.1.7   | :white_check_mark: |
 | others  | :x:                |
 
 ## Reporting a Vulnerability
