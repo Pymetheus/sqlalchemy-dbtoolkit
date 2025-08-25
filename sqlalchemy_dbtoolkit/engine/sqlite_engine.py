@@ -33,7 +33,7 @@ class SqliteEngine(BaseEngine):
             str: Always returns 'sqlite'.
         """
 
-        return "sqlite"
+        return 'sqlite'
 
     @property
     def fallback_database(self):
@@ -66,7 +66,7 @@ class SqliteEngine(BaseEngine):
             sqlalchemy.engine.URL: The SQLite connection URL.
         """
 
-        database_path = os.path.join(self.sqlite_dir_path, f"{self.db_name}.db")
+        database_path = os.path.join(self.sqlite_dir_path, f'{self.db_name}.db')
         connection_url = URL.create(
             drivername=self.dialect,
             database=database_path

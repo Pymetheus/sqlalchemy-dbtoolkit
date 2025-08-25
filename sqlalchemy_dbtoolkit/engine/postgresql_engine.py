@@ -20,7 +20,7 @@ class PostgreSQLEngine(BaseEngine):
         """
 
         super().__init__(db_name, config_path)
-        self.driver = "psycopg2"
+        self.driver = 'psycopg2'
         self.load_config()
 
     @property
@@ -31,7 +31,7 @@ class PostgreSQLEngine(BaseEngine):
         Returns:
             str: Always returns 'postgresql'.
         """
-        return "postgresql"
+        return 'postgresql'
 
     @property
     def fallback_database(self):
@@ -41,7 +41,7 @@ class PostgreSQLEngine(BaseEngine):
         Returns:
             str: The name of the fallback database, 'postgres'.
         """
-        return "postgres"
+        return 'postgres'
 
     def load_config(self):
         """
@@ -81,7 +81,7 @@ class PostgreSQLEngine(BaseEngine):
         try:
             temp_engine = self.connect_to_fallback_db()
             with temp_engine.begin() as temp_connection:
-                check_db_query = "SELECT datname FROM pg_database WHERE datistemplate = false;"
+                check_db_query = 'SELECT datname FROM pg_database WHERE datistemplate = false;'
                 result = temp_connection.execute(text(check_db_query))
 
             for item in result:
@@ -104,8 +104,8 @@ class PostgreSQLEngine(BaseEngine):
         temp_engine = None
         try:
             temp_engine = self.connect_to_fallback_db()
-            with temp_engine.connect().execution_options(isolation_level="AUTOCOMMIT") as temp_connection:
-                create_db_query = f"CREATE DATABASE {new_db}"
+            with temp_engine.connect().execution_options(isolation_level='AUTOCOMMIT') as temp_connection:
+                create_db_query = f'CREATE DATABASE {new_db}'
                 temp_connection.execute(text(create_db_query))
                 temp_connection.commit()
         except Exception as e:

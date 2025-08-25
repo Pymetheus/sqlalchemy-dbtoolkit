@@ -39,7 +39,7 @@ class Config:
         Return MySQL host.
         """
         try:
-            return self.config["mysql"]["host"]
+            return self.config['mysql']['host']
         except KeyError:
             raise KeyError("Missing 'mysql host' under [mysql] section.")
 
@@ -49,7 +49,7 @@ class Config:
         Return MySQL user.
         """
         try:
-            return self.config["mysql"]["user"]
+            return self.config['mysql']['user']
         except KeyError:
             raise KeyError("Missing 'mysql user' under [mysql] section.")
 
@@ -59,7 +59,7 @@ class Config:
         Return MySQL password.
         """
         try:
-            return self.config["mysql"]["password"]
+            return self.config['mysql']['password']
         except KeyError:
             raise KeyError("Missing 'mysql password' under [mysql] section.")
 
@@ -69,7 +69,7 @@ class Config:
         Return MySQL port.
         """
         try:
-            return self.config["mysql"]["port"]
+            return self.config['mysql']['port']
         except KeyError:
             raise KeyError("Missing 'mysql port' under [mysql] section.")
 
@@ -79,7 +79,7 @@ class Config:
         Return PostgreSQL host.
         """
         try:
-            return self.config["postgresql"]["host"]
+            return self.config['postgresql']['host']
         except KeyError:
             raise KeyError("Missing 'postgresql host' under [postgresql] section.")
 
@@ -89,7 +89,7 @@ class Config:
         Return PostgreSQL user.
         """
         try:
-            return self.config["postgresql"]["user"]
+            return self.config['postgresql']['user']
         except KeyError:
             raise KeyError("Missing 'postgresql user' under [postgresql] section.")
 
@@ -99,7 +99,7 @@ class Config:
         Return PostgreSQL password.
         """
         try:
-            return self.config["postgresql"]["password"]
+            return self.config['postgresql']['password']
         except KeyError:
             raise KeyError("Missing 'postgresql password' under [postgresql] section.")
 
@@ -109,7 +109,7 @@ class Config:
         Return PostgreSQL port.
         """
         try:
-            return self.config["postgresql"]["port"]
+            return self.config['postgresql']['port']
         except KeyError:
             raise KeyError("Missing 'postgresql port' under [postgresql] section.")
 
@@ -119,6 +119,6 @@ class Config:
         Return SQLite file path.
         """
         try:
-            return self.config["sqlite"]["path"]
+            return self.config['sqlite']['path']
         except KeyError:
             raise KeyError("Missing 'sqlite path' under [sqlite] section.")
