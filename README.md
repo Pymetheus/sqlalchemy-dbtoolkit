@@ -1,9 +1,9 @@
 # SQLAlchemy Database Toolkit
 
-**A modular toolkit for building, configuring, and managing databases using SQLAlchemy**
+**A modular toolkit for building, configuring, and managing databases using [SQLAlchemy](https://www.sqlalchemy.org)**
 
 The SQLAlchemy Database Toolkit simplifies the setup and management across different relational databases.  
-Currently, it handles configuration loading, engine creation, ORM base registration, session management and CRUD operations.  
+Currently, it handles configuration loading, engine creation, ORM base registration, session management and CRUD operations.
 It provides an extensible foundation for rapid database development, prototyping, and integration into data pipelines or applications.  
 
 Supported DBMS under current version:
