@@ -4,11 +4,11 @@ If you believe you have found a security vulnerability, please report it to us a
 
 ## Supported Versions
 
-Currently only the 0.1.7 version of the sqlalchemy-dbtoolkit is supported.
+Currently only the 0.1.8 version of the sqlalchemy-dbtoolkit is supported.
 
 | Version | Supported          |
 |---------| ------------------ |
-| 0.1.7   | :white_check_mark: |
+| 0.1.8   | :white_check_mark: |
 | others  | :x:                |
 
 ## Reporting a Vulnerability
@@ -17,4 +17,4 @@ Currently only the 0.1.7 version of the sqlalchemy-dbtoolkit is supported.
 
 Please report security vulnerabilities via [Email](mailto:github.senate902@passfwd.com).
 You will receive a response from us within 48 hours.
-If the issue is confirmed, we will release a patch as soon as possible depending on complexity
+If the issue is confirmed, we will release a patch as soon as possible depending on complexity.

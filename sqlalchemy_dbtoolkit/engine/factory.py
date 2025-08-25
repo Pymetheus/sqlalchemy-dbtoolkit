@@ -32,7 +32,7 @@ class AlchemyEngineFactory:
         """
         Validates that the provided DBMS is supported.
         """
-        supported_dbms = ["mysql", "postgresql", "sqlite"]
+        supported_dbms = ['mysql', 'postgresql', 'sqlite']
         if self.dbms not in supported_dbms:
             raise ValueError(f"{self.dbms} is not in supported DBMS: {supported_dbms}")
 
@@ -45,15 +45,15 @@ class AlchemyEngineFactory:
             sqlalchemy.engine.Engine: Initialized SQLAlchemy engine.
         """
 
-        if self.dbms == "mysql":
+        if self.dbms == 'mysql':
             engine_instance = MysqlEngine(db_name=self.db_name, config_path=self.config_path)
             engine_instance.establish_db_connection()
             return engine_instance.engine
-        elif self.dbms == "postgresql":
+        elif self.dbms == 'postgresql':
             engine_instance = PostgreSQLEngine(db_name=self.db_name, config_path=self.config_path)
             engine_instance.establish_db_connection()
             return engine_instance.engine
-        elif self.dbms == "sqlite":
+        elif self.dbms == 'sqlite':
             engine_instance = SqliteEngine(db_name=self.db_name, config_path=self.config_path)
             engine_instance.establish_db_connection()
             return engine_instance.engine

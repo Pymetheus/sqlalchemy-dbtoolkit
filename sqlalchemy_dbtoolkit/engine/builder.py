@@ -11,11 +11,11 @@ class BaseEngine(ABC):
     """
 
     DEFAULT_DB_PORTS = {
-        "mariadb": 3306,
-        "mssql": 1433,
-        "mysql": 3306,
-        "oracle": 1521,
-        "postgresql": 5432
+        'mariadb': 3306,
+        'mssql': 1433,
+        'mysql': 3306,
+        'oracle': 1521,
+        'postgresql': 5432
     }
 
     def __init__(self, db_name, config_path='../../.config/config.ini'):
@@ -74,7 +74,7 @@ class BaseEngine(ABC):
         if len(name) > 63:
             raise ValueError(f"Database name is too long: {len(name)} Max length is 63 characters.")
 
-        if not re.match(r"^[A-Za-z_][A-Za-z0-9_]*$", name):
+        if not re.match(r'^[A-Za-z_][A-Za-z0-9_]*$', name):
             raise ValueError(f"{name} must start with letter/underscore. Only letters, numbers, underscores allowed.")
 
     def create_connection_url(self):
@@ -87,7 +87,7 @@ class BaseEngine(ABC):
         """
 
         connection_url = URL.create(
-            drivername=f"{self.dialect}+{self.driver}",
+            drivername=f'{self.dialect}+{self.driver}',
             username=self.username,
             password=self.password,
             host=self.host,

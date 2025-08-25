@@ -3,7 +3,7 @@
 **A modular toolkit for building, configuring, and managing databases using SQLAlchemy**
 
 The SQLAlchemy Database Toolkit simplifies the setup and management across different relational databases.  
-Currently, it handles configuration loading, engine creation, ORM base registration, and session management.  
+Currently, it handles configuration loading, engine creation, ORM base registration, session management and CRUD operations.  
 It provides an extensible foundation for rapid database development, prototyping, and integration into data pipelines or applications.  
 
 Supported DBMS under current version:
@@ -81,7 +81,7 @@ Engine Factory Example:
 ```python
 from sqlalchemy_dbtoolkit.engine.factory import AlchemyEngineFactory  
 
-engine = AlchemyEngineFactory(dbms="mysql", db_name="analytics_db", config_path='../.config/config.ini').engine
+engine = AlchemyEngineFactory(dbms='mysql', db_name='analytics_db', config_path='../.config/config.ini').engine
 ```
 
 ORM Table Management Example:
@@ -106,14 +106,29 @@ ORM Session Insert Example:
 from sqlalchemy_dbtoolkit.query.create import InsertManager
 
 inserter = InsertManager(engine)
-inserter.add_row(YourTable, {"column_1": "value", "column_2": 42})
+inserter.add_row(YourTable, {'column_1': 'value', 'column_2': 42})
 ```
 
 ORM Session Select Example:
 ```python
 from sqlalchemy_dbtoolkit.query.read import SelectManager
 selector = SelectManager(engine)
-selection = selector.select_one_by_column(Table=YourTable, column_name="column_1", value="value")
+selection = selector.select_one_by_column(Table=YourTable, column_name='column_1', column_value='value', operator_name='eq')
+```
+
+ORM Session Update Example:
+```python
+from sqlalchemy_dbtoolkit.query.update import UpdateManager
+updater = UpdateManager(engine)
+updates = {'column_2': 43}
+updated_rows = updater.update_rows(Table=YourTable, column_name='column_1', column_value='value', update_dict=updates, operator_name='eq')
+```
+
+ORM Session Delete Example:
+```python
+from sqlalchemy_dbtoolkit.query.delete import DeleteManager
+deleter = DeleteManager(engine)
+deleted_rows = deleter.delete_rows_by_filter(Table=YourTable, column_name='column_1', column_value='value', operator_name='eq')
 ```
 
 Inspector Example:
@@ -129,7 +144,7 @@ for table in table_names:
 ## Roadmap
 
 - [ ] Pandas Integration: Enable conversion between database queries and pandas DataFrames for analysis and data manipulation  
-- [ ] Full CRUD Support: Expand the query layer to include read, update, and delete operations  
+- [X] Full CRUD Support: Expand the query layer to include read, update, and delete operations  
 - [ ] SQLAlchemy Core Support: Provide additional utilities to support low-level, fine-grained database interactions  
 - [ ] Integrated Logging: Add structured logging across all components to improve debugging  
 - [ ] Integrate DBMSs: Include support for additional DBMS like mariadb, mssql and oracle

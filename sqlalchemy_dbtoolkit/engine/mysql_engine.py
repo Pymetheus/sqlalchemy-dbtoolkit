@@ -20,7 +20,7 @@ class MysqlEngine(BaseEngine):
         """
 
         super().__init__(db_name, config_path)
-        self.driver = "mysqlconnector"
+        self.driver = 'mysqlconnector'
         self.load_config()
 
     @property
@@ -31,7 +31,7 @@ class MysqlEngine(BaseEngine):
         Returns:
             str: Always returns 'mysql'.
         """
-        return "mysql"
+        return 'mysql'
 
     @property
     def fallback_database(self):
@@ -42,7 +42,7 @@ class MysqlEngine(BaseEngine):
             str: The name of the fallback database, 'information_schema'.
         """
 
-        return "information_schema"
+        return 'information_schema'
 
     def load_config(self):
         """
@@ -82,7 +82,7 @@ class MysqlEngine(BaseEngine):
         try:
             temp_engine = self.connect_to_fallback_db()
             with temp_engine.begin() as temp_connection:
-                check_db_query = "SHOW DATABASES;"
+                check_db_query = 'SHOW DATABASES;'
                 result = temp_connection.execute(text(check_db_query))
 
             for item in result:
@@ -107,7 +107,7 @@ class MysqlEngine(BaseEngine):
         try:
             temp_engine = self.connect_to_fallback_db()
             with temp_engine.connect() as temp_connection:
-                create_db_query = f"CREATE DATABASE IF NOT EXISTS {new_db}"
+                create_db_query = f'CREATE DATABASE IF NOT EXISTS {new_db}'
                 temp_connection.execute(text(create_db_query))
                 temp_connection.commit()
         except Exception as e:

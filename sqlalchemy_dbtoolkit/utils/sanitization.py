@@ -15,7 +15,7 @@ def sanitize_nan_to_none(value):
 
     if pd.isna(value):
         return None
-    elif isinstance(value, str) and value.strip().lower() == "nan":
+    elif isinstance(value, str) and value.strip().lower() == 'nan':
         return None
     else:
         return value
